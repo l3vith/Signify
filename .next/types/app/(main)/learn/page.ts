@@ -1,4 +1,4 @@
-// File: /home/smit/Documents/code/react/Lingo_mini_project/app/(main)/learn/page.tsx
+// File: C:\Users\Sara Gorule\Lingo_mini_project\app\(main)\learn\page.tsx
 import * as entry from '../../../../../app/(main)/learn/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
