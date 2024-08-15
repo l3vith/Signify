@@ -19,7 +19,7 @@ export const UserProgress = ({
     hasActiveSubscription
  }: Props) =>{
     return(
-        <div className="flex gap-[24px] lg:fixed mt-[0px] border">
+        <div className="flex gap-[24px] lg:fixed mt-[0px]">
             <div className="w-[69px]">
                 <Link href={"/shop"}>
              <div className="w-[69px] h-[40px] border rounded-md">
