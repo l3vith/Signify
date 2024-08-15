@@ -71,6 +71,8 @@ body,
     @apply border-border;
     @apply h-full;
     @apply w-full;
+    margin: 0;
+    padding: 0;
     /* @apply fixed; */
     
    
@@ -80,7 +82,7 @@ body,
     /* @apply fixed; */
     
    
-    /* background: #131F24; */
+    background: #131F24;
   
   }
 
