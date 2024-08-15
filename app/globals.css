@@ -77,10 +77,10 @@ body,
   }
   body {
     @apply bg-background text-foreground;
-    @apply fixed;
+    /* @apply fixed; */
     
    
-    background: #131F24;
+    /* background: #131F24; */
   
   }
 
