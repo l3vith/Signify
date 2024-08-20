@@ -9,7 +9,7 @@ interface HeaderProps {
 
 export const Header = ({ title }: HeaderProps) => {
   return (
-   <div className="flex mt-[50px] h-[110px] rounded-[13px] bg-[#6F82E9]">
+   <div className=" sticky mt-[50px] h-[110px] rounded-[13px] bg-[#6F82E9]">
      
    </div>
   );

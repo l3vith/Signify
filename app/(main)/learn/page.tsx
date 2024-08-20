@@ -27,8 +27,9 @@ const LearnPage = async () => {
           hasActiveSubscription={true}
         />
       </StickyWrapper>
+      
       <FeedWrapper>
-        <Header title={"Hello"} />
+      <Header title={"Hello"} />
       </FeedWrapper>
     </div>
   );
