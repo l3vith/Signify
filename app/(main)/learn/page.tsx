@@ -21,21 +21,8 @@ const LearnPage = async () => {
 
 
   return (
-    <div className="flex flex-row-reverse gap-[48px] px-6">
-      <StickyWrapper>
-        <UserProgress
-          activeCourse ={{title: "Spanish", imageSrc: "/heart.svg"}}
-          hearts={5}
-          points={100}
-          hasActiveSubscription={true}
-        />
-      </StickyWrapper>
-      
-      <FeedWrapper>
-      <Header title={"Hello"} />
-      </FeedWrapper>
+    <div>
+      This is a marketing page
     </div>
   );
 };
-
-export default LearnPage;
