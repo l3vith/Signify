@@ -1,3 +1,4 @@
+import { relations } from "drizzle-orm";
 import { integer, serial, text } from "drizzle-orm/pg-core";
 import { pgTable, PgTable } from "drizzle-orm/pg-core";
 
@@ -7,6 +8,10 @@ export const courses = pgTable("courses",{
     imageSrc: text("image_src").notNull(),
 });
 
+export const coursesRelations = relations(courses, ({many})=>({
+    userProgress: many(userProgress),
+}))
+
 export const userProgress = pgTable("user_progress", {
     userId: text("user_id").primaryKey(),
     userName: text("user_name").notNull().default("User"),
@@ -15,3 +20,10 @@ export const userProgress = pgTable("user_progress", {
     hearts: integer("hearts").notNull().default(5),
     points: integer("hearts").notNull().default(0),
 })
+
+export const userProgressRelations = relations(userProgress, ({one})=>({
+    activeCourse: one(courses, {
+        fields:  [userProgress.activeCourseId],
+        references: [courses.id],
+    }),
+}));
