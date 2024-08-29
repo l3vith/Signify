@@ -10,7 +10,7 @@ interface HeaderProps {
 export const Header = ({ title }: HeaderProps) => {
   return (
    <div className=" sticky mt-[50px] h-[110px] rounded-[13px] bg-[#6F82E9]">
-    <a href="/courses"> <ArrowLeft></ArrowLeft></a>
+    {/* <a href="/courses"> <ArrowLeft></ArrowLeft></a> */}
    </div>
   );
 };

@@ -1,8 +1,7 @@
-import { Button } from "@/components/ui/button";
-
-
 export default function Home() {
-  return(
-  <div>HEllo</div>
-  )
+    return (
+    <div className="max-h-[100vh]">
+        This is a marketing page
+    </div>
+    )
 }

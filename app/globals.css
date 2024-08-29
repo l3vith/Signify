@@ -73,7 +73,11 @@ body,
     @apply w-full;
     margin: 0;
     padding: 0;
-    /* @apply fixed; */
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 100%;
+
+        /* @apply fixed; */
     
    
   }
@@ -81,7 +85,11 @@ body,
     @apply bg-background text-foreground;
     /* @apply fixed; */
     
-   
+
+      height: 100vh;
+      overflow-y: auto;
+    
+    
     background: #131F24;
   
   }

@@ -6,23 +6,30 @@ import { StickyWrapper } from "@/components/sticky-wrapper";
 
 import { Header } from "./header";
 import { UserProgress } from "@/components/user-progress";
-import { getUserProgress } from "@/db/queries";
+import Head from "next/head";
+// import { getUserProgress } from "@/db/queries";
 
 const LearnPage = async () => {
+  
+  // const userProgressData = getUserProgress();
 
-  const userProgressData = getUserProgress();
-
-  const [
-    userProgress,
-  ] = await Promise.all([
-    userProgressData,
-  ]);
-  ]
+  // const [
+  //     userProgress,
+  //   ]: any[] = await Promise.all([
+  //     userProgressData,
+  //   ]);
+  
+  //   if(!userProgress || !userProgress.activeCourseId){
+  //   redirect("/courses");
+  // }
+  
 
 
   return (
     <div>
-      This is a marketing page
+      <Header title={"spanish"}/>
     </div>
   );
 };
+
+export default LearnPage;
