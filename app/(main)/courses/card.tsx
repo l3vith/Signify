@@ -44,7 +44,7 @@ export const Card = ({
          width={100}
          className="object-cover rounded drop-shadow-md h-[150px] w-[150px]"
         />
-        <p className="text-white text-center font-bold">{title}</p>
+        <p className="text-neutral-400 text-center font-bold">{title}</p>
         </div>
         </a>
     )
