@@ -7,20 +7,20 @@ import { StickyWrapper } from "@/components/sticky-wrapper";
 import { Header } from "./header";
 import { UserProgress } from "@/components/user-progress";
 import Head from "next/head";
-// import { getUserProgress } from "@/db/queries";
+import { getUserProgress } from "@/db/queries";
 
 const LearnPage = async () => {
   
-  // const userProgressData = getUserProgress();
+  const userProgressData = getUserProgress();
 
-  // const [
-  //     userProgress,
-  //   ]: any[] = await Promise.all([
-  //     userProgressData,
-  //   ]);
+  const [
+      userProgress,
+    ]: any[] = await Promise.all([
+      userProgressData,
+    ]);
   
   //   if(!userProgress || !userProgress.activeCourseId){
-  //   redirect("/courses");
+  //   redirect("./learn");
   // }
   
 

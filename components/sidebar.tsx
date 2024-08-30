@@ -9,6 +9,7 @@ import leaderboardicon from "@/public/leaderboard.svg";
 import shopicon from "@/public/shop.svg";
 import schoolicon from "@/public/school.svg";
 import podcasticon from "@/public/podcast.svg";
+import { Button } from "./ui/button";
 
 type Props = {
     className?: string;
@@ -30,8 +31,7 @@ export const Sidebar = ({ className }: Props) => {
                 <SidebarItem label="Alphabets" href="/alphabets" iconSrc={alphabetsicon}></SidebarItem>
                 <SidebarItem label="Leaderboards" href="/leaderboard" iconSrc={leaderboardicon}></SidebarItem>
                 <SidebarItem label="Shop" href="/shop" iconSrc={shopicon}></SidebarItem>
-                
-
+                <SidebarItem label="Sign out" href="/" iconSrc={shopicon}></SidebarItem>
             </div>
         </div>
     );
