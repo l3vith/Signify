@@ -30,7 +30,7 @@ export const Header = () =>{
                     </SignedIn>
 
                     <SignedOut>
-                        <SignInButton mode="redirect" signUpFallbackRedirectUrl={"/learn"}>
+                        <SignInButton mode="modal" signUpFallbackRedirectUrl={"/learn"} forceRedirectUrl={"/learn"}>
                             <Button size="lg" variant="primary" className='w-[60px] h-[40px]'>
                             Login
                             </Button>
