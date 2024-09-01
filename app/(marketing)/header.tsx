@@ -1,22 +1,19 @@
-import Image from 'next/image'
-
-import { ClerkLoading, ClerkLoaded, SignedIn, SignedOut, SignInButton, SignOutButton, UserButton } from '@clerk/nextjs';
 import { Button } from "@/components/ui/button";
+import { ClerkLoaded, ClerkLoading, SignedIn, SignedOut, UserButton, SignInButton, SignOutButton, } from "@clerk/nextjs";
 import { Loader } from "lucide-react";
+import Image from "next/image";
 
-import logo from '@/public/icontest.svg'
-
-export const Header = () => {
+export const Header = () =>{
     return (
-        <header className="h-20 w-full border-b-2 color px-4 border-blue-900 border-opacity-35">
+        <header className="h-20 w-full border-b-2  border-blue-900 border-opacity-35 px-4">
             <div className="lg:max-w-screen-lg mx-auto flex items-center justify-between h-full">
-                <div className="pt-5 pl-4 pb-7 flex items-center gap-x-3">
-                    <Image src={logo} height={40} width={40} alt="Logo" className='h-[40px] w-[40px]'></Image>
-                    <h1 className='text-2xl font-extrabold text-blue-900 tracking-wide'>
-                        Lingo
-                    </h1>
+                <div className="pt-8 pl-4 pb-7 flex items-center gap-x-3">
+                    <Image src="/mascot.svg" height={40} width={40} alt="Mascot" />
+                    <h1 className="text-2xl font-extrabold text-sky-400 tracking-wide">Signify</h1>
                 </div>
 
+                <div className="hidden lg:block">
+                    
                 <ClerkLoading>
                     <Loader className='h-5 w-5 text-muted-foreground animate-spin'></Loader>
                 </ClerkLoading>
@@ -33,14 +30,18 @@ export const Header = () => {
                     </SignedIn>
 
                     <SignedOut>
-                        <SignInButton mode="redirect">
-                            <Button size="lg" variant="ghost" className='w-[60px] h-[40px]'>
+                        <SignInButton mode="redirect" signUpFallbackRedirectUrl={"/learn"}>
+                            <Button size="lg" variant="primary" className='w-[60px] h-[40px]'>
                             Login
                             </Button>
                         </SignInButton>
                     </SignedOut>
                 </ClerkLoaded>
+                </div>
+
+                
             </div>
+            
         </header>
     );
 };

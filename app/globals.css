@@ -6,7 +6,7 @@ html,
 body,
 :root{
   @apply h-full;
-}
+};
 
 @layer base {
   :root {
@@ -35,7 +35,6 @@ body,
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    
   }
 
   .dark {
@@ -69,29 +68,10 @@ body,
 @layer base {
   * {
     @apply border-border;
-    @apply h-full;
-    @apply w-full;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow: hidden;
-    height: 100%;
-
-        /* @apply fixed; */
-    
-   
   }
   body {
     @apply bg-background text-foreground;
-    /* @apply fixed; */
-    
-
-      height: 100vh;
-      overflow-y: auto;
-    
     
     background: #131F24;
-  
   }
-
 }

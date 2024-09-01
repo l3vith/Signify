@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
-
-import { ClerkProvider} from '@clerk/nextjs';
-import { Button } from "@/components/ui/button";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const font = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Lingo",
-  description: "Learning made fun",
+  description: "A simple language learning app",
 };
 
 export default function RootLayout({
@@ -18,28 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider >
-      <html>
-        <body className={font.className}>{children}</body>
-      </html>
+    <ClerkProvider>
+      <html lang="en">
+      <body className={font.className}>{children}</body>
+    </html>
     </ClerkProvider>
-
-    // <ClerkProvider>
-    //   <html lang="en">
-    //     <body>
-    //       <header>
-    //         <SignedOut>
-    //           <SignInButton />
-    //         </SignedOut>
-    //         <SignedIn>
-    //           <UserButton />
-    //         </SignedIn>
-    //       </header>
-    //       <main>{children}</main>
-    //     </body>
-    //   </html>
-    // </ClerkProvider>
-
-    
   );
 }

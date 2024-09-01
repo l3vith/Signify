@@ -1,35 +1,17 @@
-import { redirect } from "next/navigation";
-
 import { FeedWrapper } from "@/components/feed-wrapper";
 import { StickyWrapper } from "@/components/sticky-wrapper";
 
-
-import { Header } from "./header";
-import { UserProgress } from "@/components/user-progress";
-import Head from "next/head";
-import { getUserProgress } from "@/db/queries";
-
 const LearnPage = async () => {
+    return(
+        <div className="flex flex-row-reverse gap-[48px] px-6">
+            <StickyWrapper>
+            Learn Page
+            </StickyWrapper>
+            <FeedWrapper>
+                feedWrapper
+            </FeedWrapper>
+        </div>
+    )
+}
   
-  const userProgressData = getUserProgress();
-
-  const [
-      userProgress,
-    ]: any[] = await Promise.all([
-      userProgressData,
-    ]);
-  
-  //   if(!userProgress || !userProgress.activeCourseId){
-  //   redirect("./learn");
-  // }
-  
-
-
-  return (
-    <div>
-      <Header title={"spanish"}/>
-    </div>
-  );
-};
-
-export default LearnPage;
+  export default LearnPage;
