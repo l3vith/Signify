@@ -18,15 +18,17 @@ const CoursesPage = async () => {
 
 
   return (
-      <div className="h-full max-w-[912px] px-3 mx-auto">
+      <div className="h-full max-w-[700px] px-3 mx-auto">
         <h1 className="h-10 text-2xl font-bold text-white">Language Courses</h1>
         
         {/* <h2 className="text-2xl font-bold text-neutral-700">Hello</h2> */}
+        
         <List 
           courses={courses} 
           activeCourseId={ userProgress?.["activeCourseId"]}/>
+      
 
-{/* */}
+
         
         
       </div>

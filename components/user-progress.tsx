@@ -19,36 +19,44 @@ export const UserProgress = ({
     hasActiveSubscription
  }: Props) =>{
     return(
-        <div className="flex gap-[24px] lg:fixed mt-[0px]">
-            <div className="w-[69px]">
-                <Link href={"/shop"}>
-             <div className="w-[69px] h-[40px] border rounded-md">
-             <Button variant={"ghost"} className="w-[69px] h-[40px] border rounded-md flex gap-1">
+        <div className="flex items-center justify-between gap-x-2 w-full">
+            <Link href={"/courses"}>
+             <Button variant={"primaryOutline"}>
                 <Image
-                        height={20}
-                        width={20} src={"/heart.svg"} alt={"heart"}  className="h-[25px] w-[25px] " />
-                        {
-                            hasActiveSubscription ? <InfinityIcon size={20} className="h-4 w-4 stroke-[3]" /> : hearts
-                        }
-                        {hearts}
-              </Button>
-             </div>
+                 src = {activeCourse.imageSrc}
+                 alt={activeCourse.title}
+                 className="rounded-md bg-white"
+                 width={32}
+                 height={32}
+                />
+             </Button>
             </Link>
-            </div>
-
-           <div className="w-[69px]">
-           <Link href={"/shop"}>
-             <div className="w-[69px] h-[40px] border rounded-md">
-             <Button variant={"ghost"} className="w-[69px] h-[40px] border rounded-md flex gap-2">
+            <Link href="/shop">
+             
+             <Button variant={"ghost"} className="text-blue-300 border">
                 <Image
-                        height={20}
-                        width={20} src={"/diamond.svg"} alt={"heart"}  className="h-[25px] w-[25px] " />
-                        {points}
-              </Button>
-             </div>
-            </Link>
-           </div>
+                src={"/diamond.svg"}
+                alt="diamond"
+                width={28}
+                height={28}
+                className="mr-2"
+                />
+                {points}
+             </Button>
 
+            </Link>
+            <Link href="/shop">
+             <Button variant={"ghost"} className="text-rose-500 border">
+                <Image
+                src={"/heart.svg"}
+                alt="heart"
+                width={28}
+                height={28}
+                className="mr-2"
+                />
+                {points}
+             </Button>
+            </Link>
         </div>
     )
 }
