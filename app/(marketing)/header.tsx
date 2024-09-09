@@ -23,7 +23,7 @@ export const Header = () =>{
                         <UserButton>
                         </UserButton>
                         <SignOutButton >
-                            <Button size="lg" variant="secondary" className='w-[100px] h-[40px] p-4 ml-4'>
+                            <Button size="lg" variant="primary" className='w-[100px] h-[40px] p-4 ml-4'>
                                 Sign Out
                             </Button>
                         </SignOutButton>
