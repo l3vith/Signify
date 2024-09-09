@@ -3,7 +3,7 @@
 
 import { cache } from "react";
 import db from "@/db/drizzle";
-import { lessons, units, userProgress } from "./schema";
+import { challengeProgress, lessons, units, userProgress } from "./schema";
 import { eq } from "drizzle-orm";
 import { auth } from "@clerk/nextjs/server";
 
@@ -38,7 +38,12 @@ export const getUnits = cache(async ()=>{
                 with: {
                     challenges: {
                         with: {
-                            challengeProgress: true,
+                            challengeProgress: {
+                                where: eq(
+                                    challengeProgress.userId,
+                                    userId,
+                                )
+                            }
                         }
                     }
                 }
