@@ -5,6 +5,7 @@ import { Header } from "./header";
 import { UserProgress } from "@/components/user-progress";
 import { getUnits, getUserProgress } from "@/db/queries";
 import Unit from "./unit";
+import Leaderboard from "./leaderboard";
 
 type Props = {
   activeCourse: {
@@ -17,8 +18,6 @@ type Props = {
   hasActiveSubscription: boolean;
 };
 
-
-
 const LearnPage = async () => {
   const unitsData = getUnits();
   const userProgressData = getUserProgress();
@@ -29,7 +28,8 @@ const LearnPage = async () => {
   ]);
 
   return (
-    <div className="flex flex-row-reverse gap-[48px] px-6">
+    <div>
+      <div className="flex flex-row-reverse gap-[48px] px-6">
       <StickyWrapper>
         <UserProgress
           activeCourse={{ id: 0, imageSrc: "/asl.png", title: "ASL" }}
@@ -37,22 +37,14 @@ const LearnPage = async () => {
           points={100}
           hasActiveSubscription={false}
         />
+        <Leaderboard/>
       </StickyWrapper>
       <FeedWrapper>
         <Header title="Learn" />
-
-        {units.map((unit) => (
-          <div key={unit.id} className="mb-10 text-white">
-            <Unit 
-              order={0}
-              description={unit.description}
-              title={unit.title}
-              lessons={unit.lessons}
-              activeLesson={undefined}
-              activeLessonPercentage={0} id={0} unit={undefined}            />
-          </div>
-        ))}
+        <Unit id={0} order={0} title={""} description={""} lessons={[]} activeLesson={undefined} unit={undefined} activeLessonPercentage={0} />
       </FeedWrapper>
+    </div>
+    
     </div>
   );
 };

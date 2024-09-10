@@ -9,7 +9,7 @@ type Props = {
     lessons: (typeof lessons.$inferSelect & {
       completed: boolean;
     })[];
-    activeLesson: typeof lessons.$inferSelect;
+    activeLesson: typeof lessons.$inferSelect | undefined;
     unit: typeof units.$inferSelect | undefined;
     activeLessonPercentage: number;
   };
@@ -31,4 +31,4 @@ const Unit = ({
   )
 }
 
-export default Unit
+export default Unit;
