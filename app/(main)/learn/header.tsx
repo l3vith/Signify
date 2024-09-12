@@ -9,7 +9,7 @@ type Props = {
 
 export const Header = ({ title }: Props) => {
   return (
-   <div className="top-0 pb-3 lg:pt-[28px] flex items-center justify-between border-b-2 mb-5 text-neutral-400 lg:z-50 overflow-hidden">
+   <div className="top-0 pb-3 lg:pt-[28px] flex items-center justify-between border-b-2 mb-5 text-neutral-400 lg:z-50 sticky bg-[#131F24]">
     <Link href={"/courses"}>
      <Button variant={"ghost"} size={"sm"}>
        <ArrowLeft className="h-5 w-5 stroke-2 text-neutral-400" />

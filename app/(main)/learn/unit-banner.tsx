@@ -48,6 +48,22 @@ export const UnitBanner = ({ title, description }: Props) => {
         </div>
         <a href="#"><Button variant={"primary"} className="w-[100px] h-[50px]">learn</Button></a>
       </div>
+
+      <div className="w-full rounded-xl bg-[#202f36] p-5 text-white flex items-center justify-between">
+        <div className="space-y-2.5">
+          <h3 className="text-2xl font-bold">Around the world</h3>
+          <p className="text-lg">Unit 5</p>
+        </div>
+        <a href="#"><Button variant={"primary"} className="w-[100px] h-[50px]">learn</Button></a>
+      </div>
+      
+      <div className="w-full rounded-xl bg-[#202f36] p-5 text-white flex items-center justify-between">
+        <div className="space-y-2.5">
+          <h3 className="text-2xl font-bold">Around the world</h3>
+          <p className="text-lg">Unit 5</p>
+        </div>
+        <a href="#"><Button variant={"primary"} className="w-[100px] h-[50px]">learn</Button></a>
+      </div>
     </div>
   );
 };

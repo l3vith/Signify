@@ -1,9 +1,10 @@
+import LessonBanner from "./lesson-banner"
 
 
 const Lessons = () => {
   return (
     <div>
-      
+      <LessonBanner />
     </div>
   )
 }
