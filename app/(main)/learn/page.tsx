@@ -3,10 +3,13 @@ import { FeedWrapper } from "@/components/feed-wrapper";
 import { StickyWrapper } from "@/components/sticky-wrapper";
 import { Header } from "./header";
 import { UserProgress } from "@/components/user-progress";
-import { getUnits, getUserProgress } from "@/db/queries";
+// import { getCourseProgress,
+//         getLessonPercentage,
+//         getUnits,
+//         getUserProgress } from "@/db/queries";
 import Unit from "./unit";
 import Leaderboard from "./leaderboard";
-
+import {lessons, units as unitSchema}from "@/db/schema";
 type Props = {
   activeCourse: {
     id: number;
@@ -19,13 +22,29 @@ type Props = {
 };
 
 const LearnPage = async () => {
-  const unitsData = getUnits();
-  const userProgressData = getUserProgress();
+  // const unitsData = getUnits();
+  // const userProgressData = getUserProgress();
+  // const courseProgressData = getCourseProgress();
+  // const lessonPercentageData = getLessonPercentage();
 
-  const [userProgress, units] = await Promise.all([
-    userProgressData,
-    unitsData,
-  ]);
+  // const [userProgress, 
+  //   units,
+  //   courseProgress,
+  //   lessonPercentage
+  //   ] = await Promise.all([
+  //   userProgressData,
+  //   unitsData,
+  //   courseProgressData,
+  //   lessonPercentageData,
+  // ]);
+    
+  // if (!userProgress || !userProgress.activeCourse){
+  //   redirect("/course");
+  // }
+
+  // if (!courseProgress){
+  //   redirect("/courses");
+  // }
 
   return (
     <div>
@@ -40,11 +59,27 @@ const LearnPage = async () => {
         <Leaderboard/>
       </StickyWrapper>
       <FeedWrapper>
-        <Header title="Learn" />
-        <Unit id={0} order={0} title={""} description={""} lessons={[]} activeLesson={undefined} unit={undefined} activeLessonPercentage={0} />
+        <Header title={"Learn"}/>  //userProgress.activeCourse.title
+        {/* {units.map((unit) => (
+          <div key={unit.id} className="mb-10">
+            <Unit
+            id={unit.id}
+            order={(unit.order)}
+            description={unit.description}
+            title={unit.title}
+            lessons={unit.lessons}
+            activeLesson={courseProgress.activeLesson}
+            activeLessonPercentage={courseProgress.activeLesson as typeof lessons.
+              $inferSelect & {
+                unit: typeof unitsSchema.$inferSelect;
+              } | undefined }
+              activeLessonPercentage={lessonPercentage}
+            />
+          </div>
+        ))} */}
+        <Unit id={0} order={0} title={""} description={""} lessons={[]} activeLesson={undefined} unit={undefined} activeLessonPercentage={0}/>
       </FeedWrapper>
-    </div>
-    
+      </div>
     </div>
   );
 };
