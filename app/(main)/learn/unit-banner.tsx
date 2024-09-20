@@ -1,69 +1,31 @@
+import { NotebookText } from "lucide-react";
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 
-type Props = {
+type UnitBannerProps = {
   title: string;
   description: string;
 };
 
-export const UnitBanner = ({ title, description }: Props) => {
+export const UnitBanner = ({ title, description }: UnitBannerProps) => {
   return (
-    <div className="flex flex-col gap-5">
-
-      <div className="w-full rounded-xl bg-[#202f36] p-5 text-white flex items-center justify-between">
-        <div className="space-y-2.5">
-          <h3 className="text-2xl font-bold">Introduction</h3>
-          <p className="text-lg">Unit 1</p>
-        </div>
-        <a href="/lessons"><Button variant={"primary"} className="w-[100px] h-[50px]">learn</Button></a>
+    <div className="flex w-full items-center justify-between rounded-xl bg-green-500 p-5 text-white">
+      <div className="space-y-2.5">
+        <h3 className="text-2xl font-bold">{title}</h3>
+        <p className="text-lg">{description}</p>
       </div>
 
-      <div className="w-full rounded-xl bg-[#202f36] p-5 text-white flex items-center justify-between">
-        <div className="space-y-2.5">
-          <h3 className="text-2xl font-bold">Everyday Life</h3>
-          <p className="text-lg">Unit 2</p>
-        </div>
-        <a href="#"><Button variant={"primary"} className="w-[100px] h-[50px]">learn</Button></a>
-      </div>
-
-      <div className="w-full rounded-xl bg-[#202f36] p-5 text-white flex items-center justify-between">
-        <div className="space-y-2.5">
-          <h3 className="text-2xl font-bold">You and Me</h3>
-          <p className="text-lg">Unit 3</p>
-        </div>
-        <a href="#"><Button variant={"primary"} className="w-[100px] h-[50px]">learn</Button></a>
-      </div>
-
-      <div className="w-full rounded-xl bg-[#202f36] p-5 text-white flex items-center justify-between">
-        <div className="space-y-2.5">
-          <h3 className="text-2xl font-bold">On the Way</h3>
-          <p className="text-lg">Unit 4</p>
-        </div>
-        <a href="#"><Button variant={"primary"} className="w-[100px] h-[50px]">learn</Button></a>
-      </div>
-
-      <div className="w-full rounded-xl bg-[#202f36] p-5 text-white flex items-center justify-between">
-        <div className="space-y-2.5">
-          <h3 className="text-2xl font-bold">Around the world</h3>
-          <p className="text-lg">Unit 5</p>
-        </div>
-        <a href="#"><Button variant={"primary"} className="w-[100px] h-[50px]">learn</Button></a>
-      </div>
-
-      <div className="w-full rounded-xl bg-[#202f36] p-5 text-white flex items-center justify-between">
-        <div className="space-y-2.5">
-          <h3 className="text-2xl font-bold">Around the world</h3>
-          <p className="text-lg">Unit 5</p>
-        </div>
-        <a href="#"><Button variant={"primary"} className="w-[100px] h-[50px]">learn</Button></a>
-      </div>
-      
-      <div className="w-full rounded-xl bg-[#202f36] p-5 text-white flex items-center justify-between">
-        <div className="space-y-2.5">
-          <h3 className="text-2xl font-bold">Around the world</h3>
-          <p className="text-lg">Unit 5</p>
-        </div>
-        <a href="#"><Button variant={"primary"} className="w-[100px] h-[50px]">learn</Button></a>
-      </div>
+      <Link href="/lesson">
+        <Button
+          size="lg"
+          variant="secondary"
+          className="hidden border-2 border-b-4 active:border-b-2 xl:flex"
+        >
+          <NotebookText className="mr-2" />
+          Continue
+        </Button>
+      </Link>
     </div>
   );
 };

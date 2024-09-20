@@ -40,8 +40,7 @@ const main = async () => {
                 id: 1,
                 courseId: 1,
                 title: "Unit 1",
-                description: "Learn the basics of ASL",
-                // order: 1,
+                description: "Learn the basics of ASL"
             }
             
         ]);
@@ -52,7 +51,7 @@ const main = async () => {
                 unitId: 1,
                 order: 1,
                 title: "Nouns",
-                // order: 1,
+                order: 1,
             },
             
         ]);

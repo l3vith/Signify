@@ -1,51 +1,50 @@
-//Card elements for the language courses section
-
-import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
 import Image from "next/image";
 
-type Props = {
-    title: string;
-    id: number;
-    imageSrc: string;
-    onClick: (id: number) => void;
-    disabled? : boolean;
-    active? : boolean;
+import { cn } from "@/lib/utils";
+
+type CardProps = {
+  title: string;
+  id: number;
+  imageSrc: string;
+  onClick: (id: number) => void;
+  disabled?: boolean;
+  isActive?: boolean;
 };
 
 export const Card = ({
-    title,
-    id,
-    imageSrc,
-    disabled,
-    onClick,
-    active,
-}: Props) => {
-    return(
-        <a href="./learn">
-            <div 
-        onClick={()=> onClick(id)}
-        className={cn("h-[100px] border-2 rounded-xl border-b-4 hover:bg-white cursor-pointer active:border-b-2 flex flex-col items-center justify-between  min-h-[217px] min-w-[200px] text-white", disabled && "pointer-events-none opacity-50")}
-        >
+  title,
+  id,
+  imageSrc,
+  onClick,
+  disabled,
+  isActive,
+}: CardProps) => {
+  return (
+    <div
+      onClick={() => onClick(id)}
+      className={cn(
+        "flex h-full min-h-[217px] min-w-[200px] cursor-pointer flex-col items-center justify-between rounded-xl border-2 border-b-[4px] p-3 pb-6 hover:bg-black/5 active:border-b-2",
+        disabled && "pointer-events-none opacity-50"
+      )}
+    >
+      <div className="flex min-h-[24px] w-full items-center justify-end">
+        {isActive && (
+          <div className="flex items-center justify-center rounded-md bg-green-600 p-1.5">
+            <Check className="h-4 w-4 stroke-[4] text-white" />
+          </div>
+        )}
+      </div>
 
-        <div className="min-[24px] w-full flex items-center justify-end p-2">
-            {active && (
-                <div className="rounded-md bg-green-600 flex items-center justify-center p-1.5">
-                    <Check className="text-white stroke-[4] h-4 w-4"/>
-                </div>
-            )}
-        </div>
-        
+      <Image
+        src={imageSrc}
+        alt={title}
+        height={70}
+        width={93.33}
+        className="rounded-lg border object-cover drop-shadow-md"
+      />
 
-        <Image 
-         src={imageSrc}
-         alt={title}
-         height={100}
-         width={100}
-         className="object-cover rounded drop-shadow-md h-[150px] w-[150px]"
-        />
-        <p className="text-white text-center font-bold mb-10">{title}</p>
-        </div>
-        </a>
-    )
-}
+      <p className="mt-3 text-center font-bold text-neutral-700">{title}</p>
+    </div>
+  );
+};

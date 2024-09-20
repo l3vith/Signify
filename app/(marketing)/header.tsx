@@ -1,47 +1,70 @@
-import { Button } from "@/components/ui/button";
-import { ClerkLoaded, ClerkLoading, SignedIn, SignedOut, UserButton, SignInButton, SignOutButton, } from "@clerk/nextjs";
+import {
+  ClerkLoaded,
+  ClerkLoading,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+  auth,
+} from "@clerk/nextjs";
 import { Loader } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
-export const Header = () =>{
-    return (
-        <header className="h-20 w-full border-b-2  border-blue-900 border-opacity-35 px-4">
-            <div className="lg:max-w-screen-lg mx-auto flex items-center justify-between h-full">
-                <div className="pt-8 pl-4 pb-7 flex items-center gap-x-3">
-                    <Image src="/mascot.svg" height={40} width={40} alt="Mascot" />
-                    <h1 className="text-2xl font-extrabold text-sky-400 tracking-wide">Signify</h1>
-                </div>
+import { Button } from "@/components/ui/button";
+import { links } from "@/config";
 
-                <div className="hidden lg:block">
-                    
-                <ClerkLoading>
-                    <Loader className='h-5 w-5 text-muted-foreground animate-spin'></Loader>
-                </ClerkLoading>
+export const Header = () => {
+  const { userId } = auth();
 
-                <ClerkLoaded>
-                    <SignedIn>
-                        <UserButton>
-                        </UserButton>
-                        <SignOutButton >
-                            <Button size="lg" variant="primary" className='w-[100px] h-[40px] p-4 ml-4'>
-                                Sign Out
-                            </Button>
-                        </SignOutButton>
-                    </SignedIn>
+  return (
+    <header className="h-20 w-full border-b-2 border-slate-200 px-4">
+      <div className="mx-auto flex h-full items-center justify-between lg:max-w-screen-lg">
+        <Link href="/" className="flex items-center gap-x-3 pb-7 pl-4 pt-8">
+          <Image src="/mascot.svg" alt="Mascot" height={40} width={40} />
 
-                    <SignedOut>
-                        <SignInButton mode="modal" signUpFallbackRedirectUrl={"/learn"} forceRedirectUrl={"/learn"}>
-                            <Button size="lg" variant="primary" className='w-[60px] h-[40px]'>
-                            Login
-                            </Button>
-                        </SignInButton>
-                    </SignedOut>
-                </ClerkLoaded>
-                </div>
+          <h1 className="text-2xl font-extrabold tracking-wide text-green-600">
+            Signify
+          </h1>
+        </Link>
 
-                
-            </div>
-            
-        </header>
-    );
+        <div className="flex gap-x-3">
+          <ClerkLoading>
+            <Loader className="h-5 w-5 animate-spin text-muted-foreground" />
+          </ClerkLoading>
+          <ClerkLoaded>
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
+
+            <SignedOut>
+              <SignInButton
+                mode="modal"
+                afterSignInUrl="/learn"
+                afterSignUpUrl="/learn"
+              >
+                <Button size="lg" variant="ghost">
+                  Login
+                </Button>
+              </SignInButton>
+            </SignedOut>
+
+            <Link
+              href={links.sourceCode}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={userId ? "pt-1.5" : "pt-3"}
+            >
+              <Image
+                src="/github.svg"
+                alt="Source Code"
+                height={20}
+                width={20}
+              />
+            </Link>
+          </ClerkLoaded>
+        </div>
+      </div>
+    </header>
+  );
 };

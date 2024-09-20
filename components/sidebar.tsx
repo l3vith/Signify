@@ -1,38 +1,59 @@
-import { cn } from "@/lib/utils";
+import { ClerkLoading, ClerkLoaded, UserButton } from "@clerk/nextjs";
+import { Loader } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import learnicon from "@/public/learnicon.svg";
-import alphabetsicon from "@/public/alphabets.svg";
-import leaderboardicon from "@/public/leaderboard.svg";
-import shopicon from "@/public/shop.svg";
-import schoolicon from "@/public/school.svg";
-import podcasticon from "@/public/podcast.svg";
-import { Button } from "./ui/button";
-import { SidebarItem } from "./ui/sidebar-item";
+import { cn } from "@/lib/utils";
 
-type Props = {
-    className?: string;
+import { SidebarItem } from "./sidebar-item";
+
+type SidebarProps = {
+  className?: string;
 };
 
-export const Sidebar = ({ className }: Props) => {
-    return (
-        <div className={cn("flex lg:w-[256px] h-full lg:fixed left-0 top-0 px-4 border-r-2 flex-col", className)}>
+export const Sidebar = ({ className }: SidebarProps) => {
+  return (
+    <div
+      className={cn(
+        "left-0 top-0 flex h-full flex-col border-r-2 px-4 lg:fixed lg:w-[256px]",
+        className
+      )}
+    >
+      <Link href="/learn">
+        <div className="flex items-center gap-x-3 pb-7 pl-4 pt-8">
+          <Image src="/mascot.svg" alt="Mascot" height={40} width={40} />
 
-            <Link href="/learn" className="h-auto">
-            <div className="pt-8 pl-4 pb-7 flex gap-x-3 h-auto items-center">
-                <Image src="/Group 2.png" width={60} height={60} alt="mascot" className="w-[60px] h-[60px]"></Image>
-                <h1 className="text-2xl font-extrabold text-blue-800 tracking-wide h-auto">Lingo</h1>
-            </div>
-            </Link>
-
-            <div className="flex flex-col gap-y-4 flex-1 mt-[30px]">
-                <SidebarItem label="Learn" href="/learn" iconSrc={learnicon}></SidebarItem>
-                <SidebarItem label="Alphabets" href="/alphabets" iconSrc={alphabetsicon}></SidebarItem>
-                <SidebarItem label="Leaderboards" href="/leaderboard" iconSrc={leaderboardicon}></SidebarItem>
-                <SidebarItem label="Shop" href="/shop" iconSrc={shopicon}></SidebarItem>
-                <SidebarItem label="Sign out" href="/" iconSrc={shopicon}></SidebarItem>
-            </div>
+          <h1 className="text-2xl font-extrabold tracking-wide text-green-600">
+            Lingo
+          </h1>
         </div>
-    );
+      </Link>
+
+      <div className="flex flex-1 flex-col gap-y-2">
+        <SidebarItem label="Learn" href="/learn" iconSrc="/learn.svg" />
+        <SidebarItem
+          label="Leaderboard"
+          href="/leaderboard"
+          iconSrc="/leaderboard.svg"
+        />
+        <SidebarItem label="Quests" href="/quests" iconSrc="/quests.svg" />
+        <SidebarItem label="Shop" href="/shop" iconSrc="/shop.svg" />
+      </div>
+
+      <div className="p-4">
+        <ClerkLoading>
+          <Loader className="h-5 w-5 animate-spin text-muted-foreground" />
+        </ClerkLoading>
+
+        <ClerkLoaded>
+          <UserButton
+            afterSignOutUrl="/"
+            appearance={{
+              elements: { userButtonPopoverCard: { pointerEvents: "initial" } },
+            }}
+          />
+        </ClerkLoaded>
+      </div>
+    </div>
+  );
 };
