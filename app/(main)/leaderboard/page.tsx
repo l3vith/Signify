@@ -30,7 +30,7 @@ const LeaderboardPage = async () => {
   const isPro = !!userSubscription?.isActive;
 
   return (
-    <div className="flex flex-row-reverse gap-[48px] px-6">
+    <div className="flex flex-row-reverse text-white gap-[48px] px-6">
       <StickyWrapper>
         <UserProgress
           activeCourse={userProgress.activeCourse}
@@ -51,7 +51,7 @@ const LeaderboardPage = async () => {
             width={90}
           />
 
-          <h1 className="my-6 text-center text-2xl font-bold text-neutral-800">
+          <h1 className="my-6 text-center text-white text-2xl font-bold">
             Leaderboard
           </h1>
           <p className="mb-6 text-center text-lg text-muted-foreground">
@@ -73,7 +73,7 @@ const LeaderboardPage = async () => {
                 />
               </Avatar>
 
-              <p className="flex-1 font-bold text-neutral-800">
+              <p className="flex-1 font-bold text-white">
                 {userProgress.userName}
               </p>
               <p className="text-muted-foreground">{userProgress.points} XP</p>
