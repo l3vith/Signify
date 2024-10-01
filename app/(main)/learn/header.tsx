@@ -11,7 +11,7 @@ export const Header = ({ title }: HeaderProps) => {
   return (
     <div className="sticky top-0 mb-5 flex items-center bg-[#131F24] justify-between border-b-2 pb-3 text-neutral-400 lg:z-50 lg:mt-[-28px] lg:pt-[28px]">
       <Link href="/courses">
-        <Button size="sm" variant="ghost">
+        <Button size="sm" variant="ghost"> 
           <ArrowLeft className="h-5 w-5 stroke-2 text-neutral-400" />
         </Button>
       </Link>
