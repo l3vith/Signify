@@ -52,7 +52,6 @@ const main = async () => {
                 unitId: 1,
                 order: 1,
                 title: "Nouns",
-                order: 1,
             },
             
         ]);
@@ -63,17 +62,18 @@ const main = async () => {
                 lessonId: 1,
                 type: "SELECT",
                 order: 1,
-                Question: 'Which one of these is the "the man"?',
+                question: 'Which one of these is the "the man"?',
             },
             
         ]);
 
-        await db.insert(schema.challengesOption).values([
+        await db.insert(schema.challengeOptions).values([
             {
                 id: 1,
                 challengeId: 1,
                 type: "SELECT",
                 imageSrc: "/man.svg",
+                audioSrc: "null",
                 correct: true,
                 text: "el hombre",
             }
