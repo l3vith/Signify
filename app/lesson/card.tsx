@@ -65,7 +65,7 @@ export const Card = ({
             type === "ASSIST" && "w-full lg:p-3"
           )}
             src={imageSrc}
-            type="video/mp4"
+
             autoPlay
             loop
             muted
